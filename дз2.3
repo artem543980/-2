@@ -1,0 +1,20 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int dv(int n) {
+	int sum = 1;
+	for (int i = 2; i <= sqrt(n); i++) {
+		if (n % i == 0) sum += i + n / i;
+	}
+	return sum;
+}
+
+int main() {
+	for (int i = 1; i < 10000; i++) {
+		for (int j = i + 1; j < 10000; j++) {
+			if (dv(i) == j && i == dv(j)) cout << i << " " << j << endl;
+		}
+	}
+	return 0;
+}
